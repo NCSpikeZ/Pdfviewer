@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <PDFJSViewer :path="path" :fileName="name" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PDFJSViewer from './components/PDFJSViewer';
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    PDFJSViewer,
+  },
+  data() {
+    return {
+      name: '50MB-TESTFILE.ORG.pdf', // change which pdf file loads
+      path: 'lib/pdfjs-4.0.379-dist/web/viewer.html', // path of the PDF.js viewer.html
+    };
+  },
+};
 </script>
 
 <style>
@@ -23,6 +28,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
